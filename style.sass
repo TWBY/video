@@ -1,0 +1,140 @@
+#app
+    border: solid 2px black
+    background: #fff
+    width: 1280px
+    height: 720px
+    overflow: hidden
+    padding: 2rem 3rem
+    display: grid
+    grid-template-rows: 1fr 1fr 1fr
+    grid-template-columns: 1fr
+    transform-style: preserve-3d
+    perspective: 1000px
+
+.video-tile, .video-toggle
+  position: absolute
+
+.video-tile
+  overflow: hidden
+  z-index: 1
+  transition: transform 0.4s linear
+  video
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: none
+    max-height: 100%
+    min-width: 100%
+    min-height: 100%
+    z-index: -1
+  &.-first
+    left: 30%
+    bottom: 10%
+    width: 50%
+    animation: video-tile-enter 2.5s cubic-bezier(0, 1, 0.2, 1) backwards
+  &.-second
+    right: 5%
+    top: 10%
+    width: 30%
+    animation: video-tile-enter 3s cubic-bezier(0, 1, 0.1, 1) backwards
+  img
+    width: 100%
+    opacity: 1
+    transition: opacity 0.3s linear
+    display: block
+  &:hover, &:focus
+    z-index: 2
+  &:hover img, &:focus img
+    opacity: 0
+
+@keyframes video-tile-enter
+  from
+    opacity: 0
+    pointer-events: none
+    transform: translateX(30%) rotateY(20deg)
+
+  to
+    opacity: 1
+    transform: none
+
+
+.video-toggle
+  overflow: hidden
+  transform: translate(calc(50% - 5rem), calc(50% - 5rem))
+  z-index: 9
+  cursor: pointer
+  width: 100%
+  height: 100%
+  transition: transform 0.6s cubic-bezier(0.6, 0, 0.4, 1)
+  .video-toggle-inner
+    position: absolute
+    width: 100%
+    height: 100%
+    overflow: hidden
+    transition: transform 0.6s cubic-bezier(0.6, 0, 0.4, 1)
+    transform: translate(calc(-100% + 10rem), calc(-100% + 10rem))
+    pointer-events: auto
+    &:before
+      pointer-events: auto
+      content: "▶"
+      height: 10rem
+      width: 10rem
+      border: solid 1px white
+      bottom: 0
+      right: 0
+      position: absolute
+      z-index: 1
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 5rem
+      background-color: white
+      color: #4066c8
+      text-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1)
+      transition: opacity 0.3s linear 0.3s
+      visibility: visible
+  video
+    min-width: 100%
+    min-height: 100%
+  &.active
+    pointer-events: auto
+    transform: none
+    .video-toggle-inner
+      transform: none
+      &:before
+        opacity: 0
+        transition-delay: 0s
+
+.button
+  display: flex
+  width: 100%
+  height: 50px
+  border: solid 1px black
+  background-color: #999
+  position: absolute
+  top: 70vh
+  z-index: 50
+  opacity: 0
+  &.active
+      opacity: 1
+
+.video__control__button
+  border: solid 1px black
+  border-radius: 50%
+  width: 40px
+  height: 40px
+  &:hover
+    background-color: black
+
+.video__sound__track__range, .video__track__range
+  appearance: none
+  width: 120px
+  height: 5px
+  border-radius: 10%
+  &::-webkit-slider-thumb
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    background-color: #F44336
+    appearance: none

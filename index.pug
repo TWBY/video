@@ -1,0 +1,70 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="style.css")
+        title Document
+    body
+        #app
+            //- .ui-arrow
+            //- .video-tile.-first
+            //-     img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/39255/kf_glacier_1.jpg')
+            //-     video(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/39255/kf_glacier_1.mp4', preload='auto', loop='true')
+            //- .video-tile.-second
+            //-     img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/39255/kf_glacier_2.jpg')
+            //-     video(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/39255/kf_glacier_2.mp4', preload='auto', loop='true')
+            .video-toggle
+                .video-toggle-inner
+                    video#video__player(loop)
+                        //- source(src='http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_60fps_normal.mp4' type='video/mp4')
+                        source(src='askroad.mov' type='video/mp4')
+            .button
+                //- #video__pause.video__control__button 暫停
+                //- #video__play.video__control__button 播放
+                input#video__track.video__track__range(type='range' step='1' min='0' max='100' value='0')
+                input#sound__track.video__sound__track__range(type='range' step='1' min='0' max='10' value='0')
+
+        //- main.flexy__item.flexy--items-center.flexy--justify-center.flexy--column
+        //-     section.section.flexy__item.flexy--column.flexy--items-center.space--big
+        //-         header.header.accessible-hide
+        //-             h2 HTML5 Video Player
+        //-         article.section__article.flexy__item.flexy--column.flexy--items-center
+        //-             header.header.accessible-hide
+        //-                 h3 A skinnable video player.
+        //-             .video.flexy__item
+        //-                 video#video__player.video__player(autoplay preload='metadata')
+        //-                     //- source(src='res/video/ban-this.mp4')
+        //-                     source(src='http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_60fps_normal.mp4' type='video/mp4')
+        //-                 .video__control.flexy__item
+        //-                     #video__duration.video__duration.flexy__item.flexy--items-center.tooltip(data-tooltip-content='Duration')
+        //-                         | 00:00:00
+        //-                     ul.flexy__item
+        //-                         li#video__start.video__control__button.tooltip(data-tooltip-content='Start')
+        //-                             svg.svg-icon.stroke--white(fill='none')
+        //-                                 use.use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#i-start')
+        //-                         li#video__play.video__control__button.tooltip(data-tooltip-content='Play')
+        //-                             svg.svg-icon.stroke--white(fill='none')
+        //-                                 use.use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#i-play')
+        //-                         li#video__pause.video__control__button.tooltip(data-tooltip-content='Pause')
+        //-                             svg.svg-icon.stroke--white(fill='none')
+        //-                                 use.use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#i-pause')
+        //-                         li#video__end.video__control__button.tooltip(data-tooltip-content='End')
+        //-                             svg.svg-icon.stroke--white(fill='none')
+        //-                                 use.use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#i-end')
+        //-                     .video__control__button.video__track.flexy__child.flexy__item.flexy--items-center.tooltip(data-tooltip-content='Track')
+        //-                         input(#video__track).video__track__range.flexy__child(type='range' step='1' min='0' max='0' value='0')
+                            .video__control__button.volume.flexy__item.tooltip(data-tooltip-content='Volume')
+                                svg(#video__sound).svg-icon.stroke--white(fill='none')
+                                    use.use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#i-volume')
+                                .video__track__range__sound
+                                    input#sound__track.video__track__range(type='range' step='1' min='0' max='10' value='10')
+                            //- #video__fullScreen.video__control__button.tooltip(data-tooltip-content='Maximize')
+                            //-     svg.svg-icon.stroke--white(fill='none')
+                            //-         use.use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#i-maximize')
+
+
+
+        script(src="script.js")
+
+
